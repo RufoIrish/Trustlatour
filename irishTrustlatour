@@ -1,1 +1,56 @@
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package trustlatour;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ *
+ * @author 2ndyrGroupC
+ */
+public class Translator {
+
+    Scanner input;
+    HashMap<String, String> mapTagalog;
+
+    public Translator() {
+        this.mapTagalog = new HashMap<>();
+        this.input = new Scanner(System.in);
+
+    }
+
+    public void main() {
+        addWord();
+        System.out.println("TRUST-laTOUR");
+        System.out.print("word: ");
+        String word = input.nextLine();
+        System.out.print("To: ");
+        System.out.println(mapTagalog.get(word.toLowerCase()));
+
+    }
+
+    public void chooseDialect() {
+        System.out.println("Choose a dialect");
+        System.out.print("from: ");
+        String from = input.nextLine();
+        System.out.print("to: ");
+        String to = input.nextLine();
+
+        if ("bisaya".equals(from.toLowerCase()) && "tagalog".equalsIgnoreCase(to)) {
+            main();
+        }
+    }
+
+    public void addWord() {
+        mapTagalog.put("gwapa", "maganda");
+        mapTagalog.put("salamat", "salamat");
+        mapTagalog.put("ayaw", "huwag");
+        mapTagalog.put("gugma", "pagmamahal");
+    }
+
+}
